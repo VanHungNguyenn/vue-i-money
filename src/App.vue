@@ -1,11 +1,20 @@
-<script setup>
-import { BeakerIcon, AcademicCapIcon } from '@heroicons/vue/24/solid'
-</script>
-
 <template>
-	<h1 class="text-3xl font-bold underline">Hello world!</h1>
-	<BeakerIcon class="h-6 w-6" />
-	<AcademicCapIcon class="h-6 w-6" />
+	<component :is="layout">
+		<router-view></router-view>
+	</component>
+	<h1>Hahaaha</h1>
 </template>
+
+<script setup>
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+import { PUBLIC_LAYOUT } from './constants'
+
+const route = useRoute()
+
+const layout = computed(() => {
+	return route.meta.layout || PUBLIC_LAYOUT
+})
+</script>
 
 <style scoped></style>
