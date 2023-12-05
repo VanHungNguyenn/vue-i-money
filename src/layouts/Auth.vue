@@ -1,8 +1,10 @@
 <template>
-	<h1>Auth layout</h1>
+	<NavigationBrand />
 	<slot />
 </template>
 
-<script setup></script>
+<script setup>
+import NavigationBrand from '@/components/NavigationBrand.vue'
+</script>
 
 <style scoped></style>

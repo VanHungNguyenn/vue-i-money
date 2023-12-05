@@ -2,7 +2,6 @@
 	<component :is="layout">
 		<router-view></router-view>
 	</component>
-	<h1>Hahaaha</h1>
 </template>
 
 <script setup>

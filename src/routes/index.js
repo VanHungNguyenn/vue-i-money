@@ -19,6 +19,15 @@ const routes = [
 			import(/* webpackChunkName: "about" */ '../views/Register.vue'),
 	},
 	{
+		path: '/login',
+		name: 'Login',
+		meta: {
+			layout: AUTH_LAYOUT,
+		},
+		component: () =>
+			import(/* webpackChunkName: "login" */ '../views/Login.vue'),
+	},
+	{
 		path: '/:pathMatch(.*)*',
 		component: NotFound,
 	},
