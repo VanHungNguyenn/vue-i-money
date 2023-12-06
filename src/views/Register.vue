@@ -10,6 +10,7 @@
 							id="fullName"
 							placeholder="iMoney..."
 							class="px-4 py-3 rounded-lg border border-gray-100 mt-1"
+							v-model="fullName"
 						/>
 					</label>
 				</div>
@@ -21,6 +22,7 @@
 							id="email"
 							placeholder="example@gmail.com"
 							class="px-4 py-3 rounded-lg border border-gray-100 mt-1"
+							v-model="email"
 						/>
 					</label>
 				</div>
@@ -32,6 +34,7 @@
 							id="password"
 							placeholder="********"
 							class="px-4 py-3 rounded-lg border border-gray-100 mt-1"
+							v-model="password"
 						/>
 					</label>
 				</div>
@@ -60,5 +63,13 @@
 </template>
 
 <script setup>
-const onSubmit = () => {}
+import { ref } from 'vue'
+
+const fullName = ref('')
+const email = ref('')
+const password = ref('')
+
+const onSubmit = () => {
+	console.log({ fullName, email, password })
+}
 </script>
