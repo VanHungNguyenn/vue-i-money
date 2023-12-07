@@ -23,4 +23,4 @@ const auth = getAuth(app)
 
 const timestamp = Timestamp.now()
 
-export default { app, analytics, fireStore, auth, timestamp }
+export { app, analytics, fireStore, auth, timestamp }

@@ -10,6 +10,7 @@
 							id="email"
 							placeholder="example@gmail.com"
 							class="px-4 py-3 rounded-lg border border-gray-100 mt-1"
+							v-model="email"
 						/>
 					</label>
 				</div>
@@ -21,6 +22,7 @@
 							id="password"
 							placeholder="********"
 							class="px-4 py-3 rounded-lg border border-gray-100 mt-1"
+							v-model="password"
 						/>
 					</label>
 				</div>
@@ -28,11 +30,21 @@
 					<button
 						type="submit"
 						class="py-3 text-center w-full bg-primary text-white font-bold rounded-lg"
+						:class="[
+							isPending ? 'bg-gray-400' : 'bg-primary',
+							'cursor-not-allowed' && isPending,
+						]"
+						:disabled="isPending"
 					>
-						Sign In
+						<span v-if="isPending"> Loading... </span>
+						<span v-else>Sign in</span>
 					</button>
 				</div>
 			</form>
+			<!-- Start: Error -->
+			<div class="text-left mt-4 text-red" v-if="error">
+				<span>{{ error }}</span>
+			</div>
 			<!-- Start: Direction -->
 			<div class="text-center w-full mt-6">
 				<span class="font-semibold">I'm a new user.</span>
@@ -48,6 +60,26 @@
 	</div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useLogin } from '@/composables/useLogin'
+
+const email = ref('')
+const password = ref('')
+
+const router = useRouter()
+
+const { error, isPending, login } = useLogin()
+
+console.log(isPending)
+
+const onSubmit = async () => {
+	await login(email.value, password.value)
+	if (!error.value) {
+		router.push({ name: 'Home', params: {} })
+	}
+}
+</script>
 
 <style scoped></style>

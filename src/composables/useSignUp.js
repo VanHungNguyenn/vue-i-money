@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 import { auth } from '../configs/firebase'
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 
 const error = ref(null)
 const isPending = ref(false)
@@ -9,26 +10,25 @@ async function signup(email, password, fullName) {
 	isPending.value = true
 
 	try {
-		// Create user with email and password
-		const response = await auth.createUserWithEmailAndPassword(
+		const response = await createUserWithEmailAndPassword(
+			auth,
 			email,
 			password
 		)
 
-		if (!response) {
-			throw new Error('Failed to create new user')
+		if (!response) throw new Error('Could not create user')
+
+		if (response.user) {
+			await updateProfile(response.user, {
+				displayName: fullName,
+			})
 		}
-
-		// Update profile with full name
-		await response.user.updateProfile({ displayName: fullName })
-
-		// Reset states after successful signup
-		isPending.value = false
 
 		return response
 	} catch (err) {
-		console.error(err.message)
+		console.error(`err`, err)
 		error.value = err.message
+	} finally {
 		isPending.value = false
 	}
 }

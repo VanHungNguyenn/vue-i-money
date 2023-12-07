@@ -42,11 +42,21 @@
 					<button
 						type="submit"
 						class="py-3 text-center w-full bg-primary text-white font-bold rounded-lg"
+						:class="[
+							isPending ? 'bg-gray-400' : 'bg-primary',
+							'cursor-not-allowed' && isPending,
+						]"
+						:disabled="isPending"
 					>
-						Sign Up
+						<span v-if="isPending"> Loading... </span>
+						<span v-else>Sign up</span>
 					</button>
 				</div>
 			</form>
+			<!-- Start: Error -->
+			<div class="text-left mt-4 text-red" v-if="error">
+				<span>{{ error }}</span>
+			</div>
 			<!-- Start: Direction -->
 			<div class="text-center w-full mt-6">
 				<span class="font-semibold">I'm already a member.</span>
@@ -64,12 +74,23 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useSignUp } from '@/composables/useSignUp'
 
 const fullName = ref('')
 const email = ref('')
 const password = ref('')
 
-const onSubmit = () => {
-	console.log({ fullName, email, password })
+const router = useRouter()
+
+console.log(router)
+
+const { error, isPending, signup } = useSignUp()
+
+const onSubmit = async () => {
+	await signup(email.value, password.value, fullName.value)
+	if (!error.value) {
+		router.push({ name: 'Login', params: {} })
+	}
 }
 </script>
