@@ -4,6 +4,10 @@ import {
 	LockClosedIcon,
 	ArrowRightOnRectangleIcon,
 	InformationCircleIcon,
+	Bars4Icon,
+	ChartBarIcon,
+	ChartPieIcon,
+	UserIcon,
 } from '@heroicons/vue/24/outline'
 
 export const PUBLIC_LAYOUT = 'default-layout'
@@ -49,5 +53,28 @@ export const PROFILE_OPTIONS = [
 			name: 'Logout',
 			params: {},
 		},
+	},
+]
+
+export const NAV_ITEMS = [
+	{
+		name: 'Home',
+		text: 'Home',
+		icon: Bars4Icon,
+	},
+	{
+		name: 'Report',
+		text: 'Report',
+		icon: ChartBarIcon,
+	},
+	{
+		name: 'Budget',
+		text: 'Budget',
+		icon: ChartPieIcon,
+	},
+	{
+		name: 'Profile',
+		text: 'Profile',
+		icon: UserIcon,
 	},
 ]
