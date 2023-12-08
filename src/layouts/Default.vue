@@ -1,8 +1,8 @@
 <template>
-	<h1>Default layout</h1>
 	<slot />
+	<NavigationBottom />
 </template>
 
-<script setup></script>
-
-<style scoped></style>
+<script setup>
+import NavigationBottom from '@/components/NavigationBottom.vue'
+</script>

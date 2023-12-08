@@ -83,8 +83,6 @@ const password = ref('')
 
 const router = useRouter()
 
-console.log(router)
-
 const { error, isPending, signup } = useSignUp()
 
 const onSubmit = async () => {

@@ -5,8 +5,13 @@
 -   [x] Font icon
 -   [x] Setup Multi layout switch
 -   [x] Built in layout components
--   [ ] Create login page
--   [ ] Create register page
--   [ ] Login Func Firebase
--   [ ] Register Func Firebase
--   [ ] Show user info to other views
+-   [x] Create login page
+-   [x] Create register page
+-   [x] Login Func Firebase
+-   [x] Register Func Firebase
+-   [x] Show user info to other views
+-   [ ] Create Profile page
+-   [ ] Logout Func Firebase
+-   [ ] Router Guands Auth
+-   [ ] Component in Default Layout
+-   [ ] Setup Full Router all Pages

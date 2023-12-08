@@ -72,12 +72,10 @@ const router = useRouter()
 
 const { error, isPending, login } = useLogin()
 
-console.log(isPending)
-
 const onSubmit = async () => {
 	await login(email.value, password.value)
 	if (!error.value) {
-		router.push({ name: 'Home', params: {} })
+		router.push({ name: 'Profile', params: {} })
 	}
 }
 </script>
