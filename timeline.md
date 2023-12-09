@@ -10,8 +10,13 @@
 -   [x] Login Func Firebase
 -   [x] Register Func Firebase
 -   [x] Show user info to other views
--   [ ] Create Profile page
--   [ ] Logout Func Firebase
+-   [x] Create Profile page
+-   [x] Logout Func Firebase
 -   [ ] Router Guands Auth
--   [ ] Component in Default Layout
--   [ ] Setup Full Router all Pages
+-   [x] Component in Default Layout
+-   [x] Setup Full Router all Pages
+-   [ ] Create New Transaction Page
+-   [ ] New Transaction Func Firebase
+-   [ ] Handle File input
+-   [ ] Firebase Storage
+-   [ ] Complete New Transaction

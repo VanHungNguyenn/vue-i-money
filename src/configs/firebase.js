@@ -2,9 +2,8 @@ import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
 import { getFirestore, Timestamp } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
+import { getStorage } from 'firebase/storage'
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
 	apiKey: 'AIzaSyC4LhaTZMM2F-WW2BMemeLvwg_Sez_jeZI',
 	authDomain: 'imoney-bdb02.firebaseapp.com',
@@ -20,7 +19,8 @@ const app = initializeApp(firebaseConfig)
 const analytics = getAnalytics(app)
 const fireStore = getFirestore(app)
 const auth = getAuth(app)
+const storage = getStorage(app)
 
 const timestamp = Timestamp.now()
 
-export { app, analytics, fireStore, auth, timestamp }
+export { app, analytics, fireStore, auth, timestamp, storage }
